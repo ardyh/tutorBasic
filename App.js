@@ -18,7 +18,9 @@ export default class BlinkApp extends Component {
   }
 
   delChange(index){
-    var newArray = this.state.arrName.slice();
+    var newArr2 = this.state.arrName.slice();
+    newArr2.splice(index,1);
+    this.setState({arrName:newArr2});
   }
 
   render() {
@@ -46,12 +48,12 @@ export default class BlinkApp extends Component {
               return <Button 
                 key='index' 
                 title={item}
-                onPress={this.delChange(index)}
+                onPress={this.delChange.bind(this, index)}
                 />;
             }
           )}
         </View>
-      </View>
+      </View>w
     );
   }
 }
